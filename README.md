@@ -1,4 +1,5 @@
-📦 Sistema de Controle de Estoque - Loja 🎮
+# 📦 Sistema de Controle de Estoque - Loja 🎮
+
 Bem-vindo ao projeto de Controle de Estoque, desenvolvido como parte da atividade prática de Lógica de Programação.
 O sistema simula o controle de estoque de uma loja de games chamada *.
 
