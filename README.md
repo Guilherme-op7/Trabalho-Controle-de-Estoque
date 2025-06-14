@@ -77,4 +77,4 @@ Modularização de Código
 
 Entrada e saída de dados no terminal
 
-👨‍💻 Desenvolvido por:
+👨‍💻 Desenvolvido por: Guilherme Neto, Lucas Gabriel, Ana Clara, Luan Riquelme, Kauan Miguel e Pedro Pires.
