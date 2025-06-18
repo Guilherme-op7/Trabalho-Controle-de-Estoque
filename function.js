@@ -52,3 +52,17 @@ export function apagarProduto(){
 
     console.log(`O valor total do estoque é: ${valorTotal}`)//Apresenta o valor total do estoque ao usuário
  }
+
+
+  export function buscarprodutopelonome (){
+    console.log('digita o nome do produto que voce deseja buscar')
+    let nomeproduto = ler ();
+
+    if (nomeproduto === produto [produtos].nome) {
+        console.log(`o nome do produto é ${nome}` )
+    }
+
+    else {
+        ('nenhum produto encotrado')
+    }
+  }
