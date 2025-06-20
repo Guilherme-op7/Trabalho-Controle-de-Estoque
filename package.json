@@ -1,0 +1,24 @@
+{
+  "name": "trabalho-controle-de-estoque",
+  "version": "1.0.0",
+  "description": "Bem-vindo ao projeto de Controle de Estoque, desenvolvido como parte da atividade prática de Lógica de Programação.\r O sistema simula o controle de estoque de uma loja de games chamada *.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guilherme-op7/Trabalho-Controle-de-Estoque.git"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guilherme-op7/Trabalho-Controle-de-Estoque/issues"
+  },
+  "homepage": "https://github.com/Guilherme-op7/Trabalho-Controle-de-Estoque#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
