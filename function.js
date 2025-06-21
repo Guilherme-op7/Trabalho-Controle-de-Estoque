@@ -1,6 +1,8 @@
+// Importando o prompt-sync pra entrada dos dados pelo terminal
 import prompt from 'prompt-sync'
 let ler = prompt();
 
+// Lista do estoque da loja, array de objetos
 let estoque = [
   {
     nome: 'The Last of Us Part II',
@@ -54,21 +56,21 @@ let estoque = [
   }
 ];
 
-
-export function Cadastrarproduto() {
+// Função pra cadastrar um novo produto no estoque
+export function cadastrarproduto() {
     console.log('Nome do produto: 📘')
     let nome = ler();
 
     console.log('Categoria: (Jogo, console, acessorio): 💻')
     let categoria = ler();
 
-    console.log('Plataforma (PS5, Xbox, PC, Nintendo Switch): 🖥️');
+    console.log('Plataforma (PS5, Xbox, PC, Nintendo Switch...): 🖥️');
     let plataforma = ler();
 
-    console.log('Preço: R$ ');
+    console.log('Preço: 💵 R$  ');
     let preco = Number(ler());
 
-    console.log('Digite a quantidade inicial: 💵')
+    console.log('Digite a quantidade de produtos do estoque que deseja adicionar: 🛒 ')
     let quantidade = Number(ler());
 
     let produto = {
@@ -79,19 +81,19 @@ export function Cadastrarproduto() {
         quantidade,
     };
 
-    estoque.push(produto);
+    estoque.push(produto); // Adiciona o novo produto no vetor de estoque
     console.log('✅ Produto cadastrado com sucesso!')
 }
 
 
-
+// Função que mostra todos os produtos cadastrados
 export async function listarprodutos() {
   if (estoque.length === 0) {
     console.log('🛒 O estoque está vazio!');
     return;
   }
 
-  console.log('------ LISTA DE PRODUTOS --------');
+  console.log('------ 🏆 LISTA DE PRODUTOS 🏆 --------');
 
   for (let i = 0; i < estoque.length; i++) {
     let produto = estoque[i];
@@ -109,11 +111,37 @@ export async function listarprodutos() {
   }
 }
 
-// estoque baixo riquelme
+// Função que mostra apenas os produtos com estoque baixo (10 unidades ou menos)
+export function listarestoquebaixo() {
+    console.log('\n📉 Produtos com estoque baixo (10 unidades ou menos):');
 
+    let encontrou = false;
 
+    for (let i = 0; i < estoque.length; i++) {
+        if (estoque[i].quantidade <= 10) {
 
-export function adicionarEstoque() {
+            console.log(`\nProduto ${i + 1}:`);
+
+            console.log(`Nome: ${estoque[i].nome}`);
+
+            console.log(`Categoria: ${estoque[i].categoria}`);
+
+            console.log(`Plataforma: ${estoque[i].plataforma}`);
+
+            console.log(`Quantidade: ${estoque[i].quantidade}`);
+
+            encontrou = true;
+
+        }
+    }
+
+    if (!encontrou) {
+        console.log('✅ Nenhum produto com estoque baixo no momento.');
+    }
+}
+
+// Função para adicionar unidades a um produto no estoque
+export function adicionarestoque() {
     listarprodutos();
 
     console.log('Numero do produto para adicionar estoque: ')
@@ -121,7 +149,7 @@ export function adicionarEstoque() {
 
     if(posicao >= 0 && posicao < estoque.length){
 
-        console.log('Digite a quantidade a se adicionar: ');
+        console.log('Digite a quantidade a se adicionar: 🛒 ');
         let qtd = Number(ler()) 
         estoque[posicao].quantidade += qtd;
 
@@ -130,13 +158,15 @@ export function adicionarEstoque() {
     }
 
     else {
-        console.log('Produto invalido!')
+        console.log('❌ Produto invalido! ❌')
     }
 }
 
 
+// Função para retirar unidades de um produto do estoque
+export async function retirardoestoque(){
+    listarprodutos();
 
-export function Retirardoestoque(){
     console.log('Numero do produto para retirar do estoque')
     let pos = Number(ler()) - 1;
     
@@ -146,31 +176,41 @@ export function Retirardoestoque(){
         let qtd = Number(ler())
         estoque [pos].quantidade -= qtd;
 
-        console.log('#Estoque atualizado com sucesso!')
+        console.log('✅ Estoque atualizado com sucesso!')
     }
     
     else {
-        console.log('#Produto invalido')
+        console.log('❌ Produto invalido ❌')
     }
 }
 
-export async function  buscarProduto() {
+
+// Função pra buscar produtos por plataforma
+export async function  buscarproduto() {
     listarprodutos();
     
-    console.log('Digite a Plataforma do produto: ');
+    console.log('🗒️ Digite a Plataforma do produto: ');
     let plataformaa = ler();
+
+    let encontrado = false;
     
     for(let i = 0; i < estoque.length; i++) {
         if(estoque[i].plataforma.toLowerCase() == plataformaa.toLowerCase()) {
             console.log(`🔎 Produto encontrado:`, estoque[i])
+            encontrado = true;
         }
-    }
+
+      }
+      if(!encontrado) {
+        console.log('❌ Nenhum produto encontrado ❌')
+      }
 }
 
-export function apagarProduto() {
+// Função para apagar um produto do estoque
+export function apagarproduto() {
     listarprodutos();
 
-    console.log('Numero produto a ser apagado: ');
+    console.log('Numero do produto a ser apagado: ');
     let posicao = Number(ler()) -1;
 
     if(posicao >= 0 && posicao < estoque.length) {
@@ -179,11 +219,13 @@ export function apagarProduto() {
     }
 
     else {
-        console.log('Produto invalido!')
+        console.log('❌ Produto invalido!')
     }
 }
 
-    export function atualizarProduto() {
+
+// Função para atualizar o nome ou o preço de um produto
+export function atualizarproduto() {
     listarprodutos();
 
     console.log('\nDigite o número do produto que deseja atualizar:');
@@ -191,8 +233,8 @@ export function apagarProduto() {
 
     if (posicao >= 0 && posicao < estoque.length) {
         console.log('\nO que você deseja atualizar?');
-        console.log('1 - Nome');
-        console.log('2 - Preço');
+        console.log('1 - Nome 📕');
+        console.log('2 - Preço 💸');
     let opcao = Number(ler());
 
     if (opcao === 1) {
@@ -203,35 +245,36 @@ export function apagarProduto() {
     } 
 
     else if (opcao === 2) {
-        console.log('Digite o novo preço do produto:');
+        console.log('Digite o novo preço do produto: 💸');
         let novoPreco = Number(ler());
         estoque[posicao].preco = novoPreco;
         console.log('✅ Preço atualizado com sucesso!');
     } 
 
     else {
-        console.log('❌ Opção inválida!');
+      console.log('❌ Opção inválida!');
     }
 
     } 
 
     else {
-        console.log('❌ Produto inválido!');
+      console.log('❌ Produto inválido!');
     }
 }
 
 
-//função de somar o total do estoque -- Ana Clara 
-    export function calcularValorEstoque (){ 
-    let valorTotal= 0; //Valor total começa com 0 
-        
+// Função que calcula o valor total do estoque (preço x quantidade de cada item)
+export function calcularvalorestoque (){ 
+    let valorTotal= 0;  
+      
     for (let produtos of estoque){
-        valorTotal += produtos.preco * produtos.quantidade; //Calcular o valor total dos produtos e adiciona á valorTotal
+      valorTotal += produtos.preco * produtos.quantidade; 
     }
 
-    console.log(`O valor total do estoque é: ${valorTotal}`)//Apresenta o valor total do estoque ao usuário
+    console.log(`O valor total do estoque é: ${valorTotal} 💸`)
 }
 
+// função que pausa o codigo por um tempo, que da a sensação de carregamento de algo
 function sleep(mili) {
   return new Promise((ok) => {
     setTimeout(ok, mili);

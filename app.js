@@ -1,46 +1,47 @@
+// Importando o prompt-sync pra entrada dos dados pelo terminal
 import prompt from 'prompt-sync'
 let ler = prompt();
 
-import { apagarProduto, calcularValorEstoque } from './function.js';
-import { adicionarEstoque, buscarProduto, Cadastrarproduto, listarprodutos, Retirardoestoque } from '../function.js';
+// importando todas as funções que foram feitas no outro arquivo chamado function.js
+import { adicionarestoque, apagarproduto, atualizarproduto, buscarproduto, cadastrarproduto, calcularvalorestoque, listarestoquebaixo, listarprodutos, retirardoestoque } from './function.js';
 
-
-
-//Função de Apresentar menu Lucas Gabriel
-
+// função principal que tem o menu interativo
 async function MostraMenu () {
 
     let funcao = 1;
-    while (funcao !== 0) {
-
+    while (funcao !== 0) { // continua repetindo ate o usuario escolher sair
+    // mostra o menu com pausas entre as linhas
+    console.log(" --- 🚀 Controle de Vendas Info Mais 🚀 ---")
     
-
-    console.log("=== SISTEMA DE ESTOQUE 🎮 ===")
+    await sleep(500)
+    console.log("\n 1 - ✏️ Cadastrar novo produto")
+    await sleep(500)
+    console.log("\n 2 - 📜 Listar todos os produtos")
+    await sleep(500)
+    console.log("\n 3 - 🛒 Adicionar Quantidade ao estoque")
+    await sleep(500)
+    console.log("\n 4 - 🛒❌ Retirar quantidade do estoque")
+    await sleep(500)
+    console.log("\n 5 - ❌ Apagar produto")
+    await sleep(500)
+    console.log("\n 6 - 📈 Calcular valor do Estoque")
+    await sleep(500)
+    console.log("\n 7 - 🔍 Buscar produto pelo nome")
+    await sleep(500)
+    console.log('\n 8 - 🛒✏️ Listar produtos com estoque baixo')
+    await sleep(500)
+    console.log('\n 9 - ✏️ 🔍 Atualizar produto pelo nome ')
+    console.log("\n 0 - 🚪 Sair")
+    await sleep(500)
     
-    await sleep(200)
-    console.log("0. Sair")
-    await sleep(200)
-    console.log("1. Cadastrar novo produto")
-    await sleep(200)
-    console.log("2. Listar todos os produtos")
-    await sleep(200)
-    console.log("3. Adicionar Quantidade ao estoque")
-    await sleep(200)
-    console.log("4. Retirar quantidade do estoque")
-    await sleep(200)
-    console.log("5. Apagar produto")
-    await sleep(200)
-    console.log("6. Calcular valor do Estoque")
-    await sleep(200)
-    console.log("7. Buscar produto pelo nome")
-    
-    await sleep(200)
-
-    console.log("Qual função você irá usar?")
+    //verifica a opção do usuario
+    console.log("Qual opção voce deseja?")
     funcao = Number(ler())
     
+    
+    // verifica qual opção o usuario escolheu e chama a função
     if (funcao == 1) {
-       Cadastrarproduto();
+        cadastrarproduto();
     }
 
     else if (funcao == 2) {
@@ -48,42 +49,50 @@ async function MostraMenu () {
     }
 
     else if (funcao == 3) {
-       adicionarEstoque();
+        adicionarestoque();
     }
 
     else if (funcao == 4) {
-        Retirardoestoque();
+        retirardoestoque();
     }
 
     else if (funcao == 5) {
-       apagarProduto();
+        apagarproduto();
     }
 
     else if (funcao == 6) {
-        calcularValorEstoque();
+        calcularvalorestoque();
     }
 
     else if (funcao == 7) {
-        buscarProduto();
+        buscarproduto();
+    }
+
+    else if (funcao == 8 ) {
+        listarestoquebaixo();
+    }
+
+    else if (funcao == 9) {
+        atualizarproduto();
     }
 
     else if (funcao == 0) {
-        console.log("Saindo do sistema...")
+        await sleep (200)
+        console.log("🚪 Saindo do sistema...")
     }
 
     else {
-        console.log("Opção Invalida!")
+        console.log("❌ Opção Invalida!")
     }
 }
 }
 
+// inicia o menu interativo
 MostraMenu();
 
-
-
-
-  function sleep(milisegundos) {
-    return new Promise((ok, nok) => {
-      setTimeout(ok, milisegundos);
-    })
+// função que pausa o codigo por um tempo, que da a sensação de carregamento de algo
+function sleep(milisegundos) {
+return new Promise((ok, nok) => {
+setTimeout(ok, milisegundos);
+})
 }
