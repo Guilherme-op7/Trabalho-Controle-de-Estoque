@@ -35,19 +35,10 @@ Cada funcionalidade foi implementada em uma função separada.
 
 📁 Controle_Estoque
  ┣ 📄 app.js
- ┣ 📄 funcoes.js
+ ┣ 📄 function.js
  ┣ 📄 README.md
  ┗ 📦 node_modules
-📋 Exemplo de Menu
 
-=== SISTEMA DE ESTOQUE 🎮 ===
-
-1. Cadastrar novo produto
-2. Listar todos os produtos
-3. Adicionar quantidade ao estoque
-4. Retirar quantidade do estoque
-5. Apagar produto
-0. Sair
 
 Escolha uma opção:
 🚀 Como Executar o Projeto
