@@ -8,17 +8,25 @@ Criar um sistema interativo no terminal que permita o gerenciamento de produtos 
 
 ✅ Funcionalidades
 
-✅ Cadastrar novo produto
+✏️ Cadastrar novo produto
 
-✅ Listar todos os produtos
+📜 Listar todos os produtos
 
-✅ Adicionar quantidade ao estoque
+🛒 Adicionar Quantidade ao estoque
 
-✅ Retirar quantidade do estoque
+🛒❌ Retirar quantidade do estoque
 
-✅ Apagar produto
+❌ Apagar produto
 
-✅ Sair do programa
+📈 Calcular valor do Estoque
+
+🔍 Buscar produto pelo nome
+
+🛒✏️ Listar produtos com estoque baixo
+
+✏️ 🔍 Atualizar produto pelo nome 
+
+🚪 Sair
 
 Cada funcionalidade foi implementada em uma função separada.
 
