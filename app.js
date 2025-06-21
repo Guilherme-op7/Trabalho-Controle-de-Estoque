@@ -11,7 +11,7 @@ async function MostraMenu () {
     let funcao = 1;
     while (funcao !== 0) { // continua repetindo ate o usuario escolher sair
     // mostra o menu com pausas entre as linhas
-    console.log(" --- 🚀 Controle de Vendas Info Mais 🚀 ---")
+    console.log(" --- 🚀 Controle de Estoque Info Mais 🚀 ---")
     
     await sleep(500)
     console.log("\n 1 - ✏️ Cadastrar novo produto")
