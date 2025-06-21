@@ -2,6 +2,7 @@ import prompt from 'prompt-sync'
 let ler = prompt();
 
 import { apagarProduto, calcularValorEstoque } from './function.js';
+import { adicionarEstoque, buscarProduto, Cadastrarproduto, listarprodutos, Retirardoestoque } from '../function.js';
 
 
 
@@ -39,19 +40,19 @@ async function MostraMenu () {
     funcao = Number(ler())
     
     if (funcao == 1) {
-        //função não foi criada ainda
+       Cadastrarproduto();
     }
 
     else if (funcao == 2) {
-        //função não foi criada ainda
+        listarprodutos();
     }
 
     else if (funcao == 3) {
-        //função não foi criada ainda
+       adicionarEstoque();
     }
 
     else if (funcao == 4) {
-        //função não foi criada ainda
+        Retirardoestoque();
     }
 
     else if (funcao == 5) {
@@ -63,7 +64,7 @@ async function MostraMenu () {
     }
 
     else if (funcao == 7) {
-
+        buscarProduto();
     }
 
     else if (funcao == 0) {
@@ -78,7 +79,7 @@ async function MostraMenu () {
 
 MostraMenu();
 
-// Quando todas a funções do menu estiverem criadas irei alterar meu código (Lucas)
+
 
 
   function sleep(milisegundos) {
